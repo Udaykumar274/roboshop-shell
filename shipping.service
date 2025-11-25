@@ -1,0 +1,15 @@
+[Unit]
+Description=Shipping Service
+After=network.target
+
+[Service]
+User=roboshop
+WorkingDirectory=/app
+Environment=CART_ENDPOINT=18.234.108.50:8080
+Environment=DB_HOST=54.82.26.35
+ExecStart=/bin/java -jar /app/shipping.jar
+Restart=always
+SyslogIdentifier=shipping
+
+[Install]
+WantedBy=multi-user.target
